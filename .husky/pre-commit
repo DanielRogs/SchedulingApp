@@ -1,0 +1,21 @@
+echo "\n ✨ Rodando Prietter para formatar o seu código ao padrão..."
+
+sleep 3
+
+npm run format || (echo "\n\n ⚠️ Erro na execução do prettier para formatação. Analise o erro exibido. \n\n" && exit 1)
+
+MODIFIED_FILES=$(git diff --name-only --diff-filter=M)
+if [ -n "$MODIFIED_FILES" ]; then
+  echo "\n 📝 Adicionando arquivos formatados ao commit...\n"
+  echo "$MODIFIED_FILES" | xargs git add
+fi
+
+echo "\n\n 🧐 Analisando o seu código e buscando por erros de lint antes de commitar..."
+
+sleep 3
+
+npm run lint || (echo "\n\n ⚠️  Erro de lint encontrado! Por favor, corrija os erros e tente novamente. \n\n" && exit 1)
+
+echo "\n\n ✅ Tudo certo com as ANÁLISES PRÉ-COMMIT!\n Continuando com o seu commit...\n\n"
+
+sleep 3
