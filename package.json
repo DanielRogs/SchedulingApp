@@ -33,6 +33,9 @@
     "husky": "^9.1.7",
     "mongodb": "^6.16.0",
     "mongoose": "^8.14.1",
-    "styled-components": "^6.1.17"
+    "react-calendar": "^5.1.0",
+    "react-router-dom": "^7.6.0",
+    "react-toastify": "^11.0.5",
+    "styled-components": "^6.1.18"
   }
 }
